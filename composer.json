@@ -1,0 +1,19 @@
+{
+  "name": "administrator/haiguanbaoguan_composer",
+  "description":"",
+  "type":"project",
+  "authors": [
+    {
+      "name": "青苹果",
+      "email": "gaoxu529@126.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "haiguan\\report_message\\": "src/haiguan/report_message"
+    }
+  }
+}

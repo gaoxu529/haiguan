@@ -9,7 +9,7 @@
 namespace haiguan\report_message;
 
 
-class Payment
+class Logistics
 {
 
     public function __construct()
@@ -17,16 +17,17 @@ class Payment
 
     }
 
-    public function ToXml($PaymentHead, $BaseTransfer)
+    public function ToXml($LogisticsHead, $BaseTransfer)
     {
         $xml = '';
         $xml .= '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL;
-        $xml .= '<ceb:CEB411Message guid="' . $PaymentHead->guid . '" version="1.0"  xmlns:ceb="http://www.chinaport.gov.cn/ceb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' . PHP_EOL;
-        $xml .= '    <ceb:Payment>' . PHP_EOL;
-        $xml .= $PaymentHead->ToXml();
-        $xml .= '    </ceb:Payment>' . PHP_EOL;
+        $xml .= '<ceb:CEB511Message guid="' . $LogisticsHead->guid . '" version="1.0"  xmlns:ceb="http://www.chinaport.gov.cn/ceb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">' . PHP_EOL;
+        $xml .= '    <ceb:Logistics>' . PHP_EOL;
+        $xml .= $LogisticsHead->ToXml();
+        $xml .= '    </ceb:Logistics>' . PHP_EOL;
         $xml .= $BaseTransfer->ToXml();
-        $xml .= '</ceb:CEB411Message>' . PHP_EOL;
+        $xml .= '</ceb:CEB511Message>' . PHP_EOL;
+
         return $xml;
     }
 }

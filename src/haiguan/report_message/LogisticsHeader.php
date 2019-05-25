@@ -11,76 +11,76 @@ namespace haiguan\report_message;
 
 use haiguan\Tool;
 
-class PaymentHeader
+class LogisticsHeader
 {
     /**
      * @var string 系统唯一序号：企业系统生成36位唯一序号（英文字母大写）。
      */
     public $guid;
     /**
-     * @var integer 报送类型：企业报送类型。1-新增 2-变更 3-删除。默认为1。
+     * @var string 报送类型
      */
-    private $appType = 1;
+    private $appType;
     /**
-     * @var string 报送时间：企业报送时间。格式:YYYYMMDDhhmmss。
+     * @var string 报送时间
      */
     private $appTime;
     /**
-     * @var integer 业务状态：业务状态:1-暂存,2-申报,默认为2。
+     * @var string 业务状态
      */
-    private $appStatus = 2;
+    private $appStatus;
     /**
-     * @var string 支付企业代码：支付企业的海关注册登记编号。
+     * @var string 物流企业代码
      */
-    private $payCode;
+    private $logisticsCode;
     /**
-     * @var string 支付企业名称：支付企业在海关注册登记的名称。
+     * @var string 物流企业名称
      */
-    private $payName;
+    private $logisticsName;
     /**
-     * @var string 支付交易编号：支付企业唯一的支付流水号。
+     * @var string 物流运单编号
      */
-    private $payTransactionId;
+    private $logisticsNo;
     /**
-     * @var string 订单编号：交易平台的订单编号，同一交易平台的订单编号应唯一。订单编号长度不能超过60位。
+     * @var string 提运单号
      */
-    private $orderNo;
+    private $billNo;
     /**
-     * @var string 电商平台代码：电商平台的海关注册登记编号；电商平台未在海关注册登记，由电商企业发送订单的，以中国电子口岸发布的电商平台标识编号为准。
+     * @var string 运费
      */
-    private $ebpCode;
+    private $freight;
     /**
-     * @var string 电商平台名称：电商平台的海关注册登记名称；电商平台未在海关注册登记，由电商企业发送订单的，以中国电子口岸发布的电商平台名称为准。
+     * @var string 保价费
      */
-    private $ebpName;
+    private $insuredFee;
     /**
-     * @var int 支付人证件类型: 1-身份证,2-其它。限定为身份证，填写“1”。
+     * @var string 币制
      */
-    private $payerIdType = 1;
+    private $currency;
     /**
-     * @var string 支付人证件号码
+     * @var string 毛重
      */
-    private $payerIdNumber;
+    private $weight;
     /**
-     * @var string 支付人姓名
+     * @var string 件数
      */
-    private $payerName;
+    private $packNo;
     /**
-     * @var string 支付人电话
+     * @var string 主要货物信息
      */
-    private $telephone;
+    private $goodsInfo;
     /**
-     * @var string 支付金额：支付金额。
+     * @var string 收货人姓名
      */
-    private $amountPaid;
+    private $consignee;
     /**
-     * @var string 支付币制 : 限定为人民币，填写“142”。
+     * @var string 收货地址
      */
-    private $currency = 142;
+    private $consigneeAddress;
     /**
-     * @var string 支付时间 : 支付时间，格式:YYYYMMDDhhmmss。
+     * @var string 收货人电话
      */
-    private $payTime;
+    private $consigneeTelephone;
     /**
      * @var string 备注
      */
@@ -96,27 +96,24 @@ class PaymentHeader
     {
 
         $xml = "";
-
-        $xml .= '<ceb:PaymentHead>' . PHP_EOL;
         $xml .= '<ceb:guid>' . $this->guid . '</ceb:guid>' . PHP_EOL;
         $xml .= '<ceb:appType>' . $this->appType . '</ceb:appType>' . PHP_EOL;
         $xml .= '<ceb:appTime>' . $this->appTime . '</ceb:appTime>' . PHP_EOL;
         $xml .= '<ceb:appStatus>' . $this->appStatus . '</ceb:appStatus>' . PHP_EOL;
-        $xml .= '<ceb:payCode>' . $this->payCode . '</ceb:payCode>' . PHP_EOL;
-        $xml .= '<ceb:payName>' . $this->payName . '</ceb:payName>' . PHP_EOL;
-        $xml .= '<ceb:payTransactionId>' . $this->payTransactionId . '</ceb:payTransactionId>' . PHP_EOL;
-        $xml .= '<ceb:orderNo>' . $this->orderNo . '</ceb:orderNo>' . PHP_EOL;
-        $xml .= '<ceb:ebpCode>' . $this->ebpCode . '</ceb:ebpCode>' . PHP_EOL;
-        $xml .= '<ceb:ebpName>' . $this->ebpName . '</ceb:ebpName>' . PHP_EOL;
-        $xml .= '<ceb:payerIdType>' . $this->payerIdType . '</ceb:payerIdType>' . PHP_EOL;
-        $xml .= '<ceb:payerIdNumber>' . $this->payerIdNumber . '</ceb:payerIdNumber>' . PHP_EOL;
-        $xml .= '<ceb:payerName>' . $this->payerName . '</ceb:payerName>' . PHP_EOL;
-        $xml .= '<ceb:telephone>' . $this->telephone . '</ceb:telephone>' . PHP_EOL;
-        $xml .= '<ceb:amountPaid>' . $this->amountPaid . '</ceb:amountPaid>' . PHP_EOL;
+        $xml .= '<ceb:logisticsCode>' . $this->logisticsCode . '</ceb:logisticsCode>' . PHP_EOL;
+        $xml .= '<ceb:logisticsName>' . $this->logisticsName . '</ceb:logisticsName>' . PHP_EOL;
+        $xml .= '<ceb:logisticsNo>' . $this->logisticsNo . '</ceb:logisticsNo>' . PHP_EOL;
+        $xml .= '<ceb:billNo>' . $this->billNo . '</ceb:billNo>' . PHP_EOL;
+        $xml .= '<ceb:freight>' . $this->freight . '</ceb:freight>' . PHP_EOL;
+        $xml .= '<ceb:insuredFee>' . $this->insuredFee . '</ceb:insuredFee>' . PHP_EOL;
         $xml .= '<ceb:currency>' . $this->currency . '</ceb:currency>' . PHP_EOL;
-        $xml .= '<ceb:payTime>' . $this->payTime . '</ceb:payTime>' . PHP_EOL;
+        $xml .= '<ceb:weight>' . $this->weight . '</ceb:weight>' . PHP_EOL;
+        $xml .= '<ceb:packNo>' . $this->packNo . '</ceb:packNo>' . PHP_EOL;
+        $xml .= '<ceb:goodsInfo>' . $this->goodsInfo . '</ceb:goodsInfo>' . PHP_EOL;
+        $xml .= '<ceb:consignee>' . $this->consignee . '</ceb:consignee>' . PHP_EOL;
+        $xml .= '<ceb:consigneeAddress>' . $this->consigneeAddress . '</ceb:consigneeAddress>' . PHP_EOL;
+        $xml .= '<ceb:consigneeTelephone>' . $this->consigneeTelephone . '</ceb:consigneeTelephone>' . PHP_EOL;
         $xml .= '<ceb:note>' . $this->note . '</ceb:note>' . PHP_EOL;
-        $xml .= '</ceb:PaymentHead>' . PHP_EOL;
 
         return $xml;
     }

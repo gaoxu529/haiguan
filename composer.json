@@ -13,7 +13,8 @@
   },
   "autoload": {
     "psr-4": {
-      "haiguan\\report_message\\": "src/haiguan/report_message"
+      "haiguan\\report_message\\": "src/haiguan/report_message",
+      "haiguan\\": "src/haiguan"
     }
   }
 }

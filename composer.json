@@ -1,7 +1,7 @@
 {
   "name": "chuangtu/haiguanbaoguan_composer",
-  "description":"",
-  "type":"project",
+  "description": "",
+  "type": "project",
   "authors": [
     {
       "name": "青苹果",
@@ -13,7 +13,6 @@
   },
   "autoload": {
     "psr-4": {
-      "haiguan\\report_message\\": "src/haiguan/report_message",
       "haiguan\\": "src/haiguan"
     }
   }

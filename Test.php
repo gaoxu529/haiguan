@@ -11,6 +11,9 @@ use haiguan\report_message\Order;
 use haiguan\report_message\OrderHeader;
 use haiguan\report_message\OrderList;
 use haiguan\report_message\BaseTransfer;
+use haiguan\Tool;
+
+echo Tool::guid();
 
 $order = new Order();
 $orderHeader = new OrderHeader();

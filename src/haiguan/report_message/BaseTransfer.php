@@ -17,23 +17,23 @@ class BaseTransfer
     /**
      * @$copCode  传输企业代码：报文传输的企业代码（需要与接入客户端的企业身份一致）
      */
-    private $copCode = "00000000";
+    public $copCode = "00000000";
     /**
      * @$copName  传输企业名称：报文传输的企业名称
      */
-    private $copName = "00000000";
+    public $copName = "00000000";
     /**
      * @$dxpMode  报文传输模式 ：默认为DXP；指中国电子口岸数据交换平台。
      */
-    private $dxpMode = "DXP";
+    public $dxpMode = "DXP";
     /**
      * @$dxpId  报文传输编号：向中国电子口岸数据中心申请数据交换平台的用户编号
      */
-    private $dxpId = "00000000";
+    public $dxpId = "00000000";
     /**
      * @$note  （非必填）备注
      */
-    private $note;
+    public $note;
 
     public function __construct()
     {

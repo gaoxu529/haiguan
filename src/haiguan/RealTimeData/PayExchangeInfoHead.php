@@ -6,7 +6,7 @@
  * Time: 14:08
  */
 
-namespace haiguan;
+namespace haiguan\RealTimeData;
 
 
 class PayExchangeInfoHead
